@@ -53,8 +53,7 @@ public class ExpenseTrackerController {
     model.removedTransactions.push(t);
     model.removedTransactionIndices.push(model.getTransactions().size());
     
-    System.out.println("Transaction Size = ");
-    System.out.println(model.getTransactions().size());
+    
     
     model.addTransaction(t);
     view.getTableModel().addRow(new Object[]{t.getAmount(), t.getCategory(), t.getTimestamp()});
@@ -90,8 +89,6 @@ public class ExpenseTrackerController {
       try {
           if (!model.removedTransactionIndices.empty()) {
               int removedTransactionIndex = model.removedTransactionIndices.pop();
-              System.out.println("RemovedTransaction Index is: ");
-              System.out.println(removedTransactionIndex);
               model.undoTransaction(removedTransactionIndex);              
               view.getUndoBtn().setEnabled(!model.removedTransactionIndices.empty());
               refresh();

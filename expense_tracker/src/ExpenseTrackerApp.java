@@ -76,8 +76,7 @@ public class ExpenseTrackerApp {
     view.addUndoButtonActionListener(e -> {
         try{
         
-        	System.out.println("Stack Status:");
-        	System.out.println(model.removedTransactionIndices.empty());
+        	
         	view.getUndoBtn().setEnabled(!model.removedTransactionIndices.empty());
         
         	if(!model.removedTransactionIndices.empty())
